@@ -16,7 +16,7 @@ sed -i 's/\/bin\/ash/\/bin\/bash/' package/base-files/files/etc/passwd    # 替�
 #sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/+uhttpd +uhttpd-mod-ubus //g' feeds/luci/collections/luci/Makefile    # 删除uhttpd
 #sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/lean/default-settings/files/zzz-default-settings    # 设置密码为空
-sed -i 's/PATCHVER:=6.1/PATCHVER:=6.1/g' target/linux/x86/Makefile   # x86机型,默认内核5.10，修改内核为5.15
+sed -i 's/PATCHVER:=6.1/PATCHVER:=5.4/g' target/linux/x86/Makefile   # x86机型,默认内核5.10，修改内核为5.15
 sed -i '$ a uci set uhttpd.main.redirect_https='\''0'\''' package/lean/default-settings/files/zzz-default-settings
 sed -i '$ a uci commit uhttpd' package/lean/default-settings/files/zzz-default-settings
 
@@ -25,3 +25,5 @@ sed -i '$ a uci commit uhttpd' package/lean/default-settings/files/zzz-default-s
 # svn export https://github.com/openwrt/packages/trunk/utils/runc/Makefile feeds/packages/utils/runc/Makefile   # 添加runc1.0.2
 rm -rf luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git luci-theme-argon
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd-alt,miniupnpd-iptables,wireless-regdb}
+
